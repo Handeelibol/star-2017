@@ -5,7 +5,10 @@ for i=1:n
             pwm((i-1)*10+j)=1;
     
          end
-
+        for j=9:10
+            pwm(j)=0;  
+        
+        end 
         
     elseif H(i)>0&G(i)<0
             for j=1:6
@@ -13,24 +16,30 @@ for i=1:n
             pwm((i-1)*10+j)=1;   
         
         end
-
+        for j=7:10
+            pwm(j)=0;
+         
+        end 
     elseif H(i)<0&G(i)>0
         
             for j=1:4
-
-            pwm((i-1)*10+j)=1;     
+            pwm(j)=1;
+     
         
         end
-
+        for j=5:10
+            pwm(j)=0;
+        
+        end 
     else H(i)<0&G(i)<0
             for j=1:2
-
-            pwm((i-1)*10+j)=1;      
+            pwm(j)=1;
+      
         end
-          
+        for j=2:10
+            pwm(j)=0;
+       
+        end 
+           
     end
-    plot(pwm)
-    hold on
-    plot(G)
-    
 end
